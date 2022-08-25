@@ -18,7 +18,7 @@ export class AppComponent {
  num1=12;
  num2=20;
  
-  constructor()
+  constructor()    // we can create the connstrutor with construtor name it self
   {
    // this.num1=10;
   }
@@ -38,6 +38,6 @@ export class AppComponent {
 {{10+20}}
 
 
-<br>
+<br>  
 
-sum of {{num1}} and {{num2}} is = {{num1 + num2}}
+sum of {{num1}} and {{num2}} is = {{num1 + num2}}               // this {{}}---> are called as interpolation
