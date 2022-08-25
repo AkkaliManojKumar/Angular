@@ -1,0 +1,163 @@
+---------------------------------------------------------------  TWO WAY DATA BINDING -------------------------------------------
+
+<input type="text" [(ngModel)]="myvar">               // two way data binding is implememted using this (ngModel)
+                                                       // to import (ngModel) ---> app.module.ts----> import FormsModule
+                                                       // two way data binding means if we change in HTML it will reflect to TS     ---[OR]---  if we change in TS it will get reflected to HTML
+<button (click)="disp()"> click me </button>           
+
+
+{{myvar}}
+
+----------------ts
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  myvar="hello";
+
+disp()
+{
+
+  alert(this.myvar);
+}
+
+
+
+}
+
+
+---------------app.module.ts 
+
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { MenuComponent } from './menu/menu.component';
+import { FormsModule } from '@angular/forms';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    MenuComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
+
+
+-------==================================================================================================================================
+
+
+<input type="text" [(ngModel)]="num1">
+
+<input type="text" [(ngModel)]="num2"> 
+
+<!-- 
+<input type="text" [(ngModel)]="num1">
+
+<input type="text" [(ngModel)]="num2">
+ -->
+
+<button (click)="disp()"> click me </button>
+
+
+{{sumvar}}
+
+
+-------------------------------------------ts 
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+num1:number=0;
+num2:number=0;
+
+sumvar:number=0;
+
+disp()
+{
+
+//this.sumvar=parseInt(this.num1)+ parseInt(this.num2);
+
+this.sumvar=this.num1+this.num2;
+}
+
+
+
+}
+
+==============================================================================================================================================
+
+
+
+<input type="text" [(ngModel)]="num1">
+
+<input type="text" [(ngModel)]="num2"> 
+
+<!-- 
+<input type="text" [(ngModel)]="num1">
+
+<input type="text" [(ngModel)]="num2">
+ -->
+
+<button (click)="disp()"> click me </button>
+
+
+{{sumvar}}
+
+----------------------------------------------ts 
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+num1:number=0;
+num2:number=0;
+
+sumvar=0;
+
+disp()
+{
+  //this.num1='test';//error 
+  
+  //this.num1 = test22 runtime ts is converted in js
+
+console.log(this.num1);
+//this.sumvar=parseInt(this.num1)+ parseInt(this.num2);
+
+this.sumvar=this.num1+this.num2;
+}
+
+
+
+}
+=========================================================
