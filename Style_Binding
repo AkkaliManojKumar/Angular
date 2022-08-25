@@ -1,0 +1,71 @@
+-----------------------  app.component.ts ------------------------------------------------
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  pclr="pink";
+
+}
+
+
+---------------------------------  app.component.html  -----------------------------------------------------------
+
+<p style="background-color:green ;"> this is green p tag </p>
+
+
+<p [style.background-color]="pclr"> this is coloured p tag </p>       // this is style binding two way data binding can be done
+
+
+<input type="text" [(ngModel)]="pclr">
+
+
+==============================================================================================================================================================
+STYLE BINDING EX 2
+
+Style Binding------------------- app.component.TS ----------------------------------------------------
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  age=0;
+  status="";
+  pclg="";
+
+  chkStatus()
+  {
+    if(this.age>=18 && this.age<=50)
+    {
+      this.status="eligible"
+      this.pclg="green";
+    }
+    else
+   {
+    this.status="not eligible"
+    this.pclg="red"; 
+  }
+  }
+
+}
+
+
+--------------------------------------------------------- app.component.html ---------------------------------------------- 
+
+
+
+<input type="number" [(ngModel)]="age"> 
+<button (click)="chkStatus()">  submit </button>
+
+<p *ngIf="status" [style.background-color]="pclg">  you are {{status}} for the job </p> 
