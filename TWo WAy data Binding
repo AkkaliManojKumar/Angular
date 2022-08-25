@@ -114,9 +114,9 @@ this.sumvar=this.num1+this.num2;
 
 
 
-<input type="text" [(ngModel)]="num1">
+<input type="text" [(ngModel)]="num1">    // **** if in place of value = (ngModel) is written it is 2 way data binding
 
-<input type="text" [(ngModel)]="num2"> 
+<input type="text" [(ngModel)]="num2">     // **** in 2way data binding if we change value in html it will get reflected in ts file and vise versa
 
 <!-- 
 <input type="text" [(ngModel)]="num1">
