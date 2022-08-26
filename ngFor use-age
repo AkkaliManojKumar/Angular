@@ -1,0 +1,54 @@
+---------------------------------- app.compoent.HTML ---------------------------------------------
+
+<select (change)="changeVal()" [(ngModel)]="selectedState"> 
+
+<option *ngFor="let state of states"> {{state}} </option> //*** state of states means from states it will give one after one state
+
+</select>
+
+{{stateCode}}
+
+<ul> 
+
+<li *ngFor="let state of states"> {{state}} </li>                //**** it will print list of states 
+
+</ul>
+
+
+
+<ol> 
+
+    <li *ngFor="let state of states"> {{state}} </li>          //**** it will print ordered  list of states
+    
+    </ol>
+
+
+
+------------------------------------------------------ app.component.ts ---------------------------------------------------------
+
+  states=['karnataka','maharastra','andra'];
+
+  selectedState="";
+  stateCode='';
+
+  constructor()
+  {
+    // for(let i=0;i<this.states.length;i++)
+    // {
+    //    console.log( this.states[i]);
+    // }
+  }
+
+  changeVal()
+  {
+  console.log('value CHANGED ' + this.selectedState);
+  if(this.selectedState=='karnataka')  
+  this.stateCode="KA"
+ else if(this.selectedState=='maharastra')  
+  this.stateCode="MH"
+ else
+  this.stateCode="AP"
+ 
+}
+
+}
