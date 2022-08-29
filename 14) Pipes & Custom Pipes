@@ -174,3 +174,66 @@ export class AppModule { }
 
 {{'wipro'|testpipe}}          // testpipe is the pipe name
                               // if we write that pipe name it will call the (mycustom.pipe.ts) file
+                              
+                              
+                              
+                              
+ ****************************************************************************************************************************************************************
+   
+  
+------------------------- app.component.html -------------------------------
+  
+  
+{{'hello'|uppercase}}  //***** 
+<br>
+<br>
+<br>
+<p> below r custom pipes</p>
+
+
+{{'hello'|testpipe}}   // we are calling 
+
+<br>
+<br>
+
+{{'new val '|testpipe:'U'}}
+
+
+
+<br>
+{{'wiPRO'|testpipe}}
+
+<br>
+
+{{'wiPRO'|testpipe:'L'}}
+
+
+-------------------------------------------------------  mycustom.pipe.ts  -------------------------------------------------------------
+
+import { Pipe, PipeTransform } from "@angular/core";
+
+@Pipe({name:'testpipe'})                       //******* (testpipe) is the userdefined pipe name 
+
+export class MyPipe implements PipeTransform
+{
+    transform(value: any, ...type: any[]) {           //***** any kind of type can be used like string ,int and any
+        
+        if(type.length>0)
+        {
+        if(type[0].toUpperCase()=='U'){
+            let val= value+"";
+            val=val.toUpperCase()
+            return val;
+            }
+            else if(type[0].toUpperCase()=='L'){
+                let val= value+"";
+                val=val.toLowerCase();
+                return val;
+                }
+        }
+            else
+            return value;
+    
+
+    }
+}
