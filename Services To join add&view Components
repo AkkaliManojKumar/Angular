@@ -9,6 +9,22 @@ ng g s student    --------->>>> Generate student service
 /// *** here we are injecting the service component to view component that is called dependency injection 
 ///*** view is dependent on the service component
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+1)bind data from HTML                                       1) Get the student array from 
+2) send student object to service                             service.
+using add method of service.                                2) Display it in HTML.
+ |                                                                     |
+ |                                                                     |
+ |                                                                     |
+ADD <-----------> SERVICE <----------------------------------------> VIEW
+                     |
+                     |
+                     |
+                     |
+                  array
+                  1) ADD ---> push to array
+                  2) GET ---> get students give to array
+
 
 
 ---------------------------------------------------------------// student.service.ts \\-------------------------------------------------------------
