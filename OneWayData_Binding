@@ -32,6 +32,6 @@ disp()
 
 
 
-<input type="text" [value]="myvar">    // keeping square brackets include one way data binding
+<input type="text" [value]="myvar">    // keeping square brackets include one way data binding( means i can edit only in the typescript file)
 
 <button (click)="disp()"> click me </button>
