@@ -1,0 +1,26 @@
+------------------------------------------ app-routing.module.ts  --------------------------------------------
+
+
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AddComponent } from './add/add.component';
+import { ViewComponent } from './view/view.component';
+
+const routes: Routes = [
+ // {path:'',component:ViewComponent},                 // *** if we write like this directly view componnet is visible
+ {path:'',redirectTo:'viewcar',pathMatch:'full'},        // path match full means entire path has to be there like (https://github.com/AkkaliManojKumar/Angular/new/main)
+  {path:'addcar',component:AddComponent},
+  {path:'viewcar',component:ViewComponent},
+  {path: '**', componenet : ErrorComponenet} //***** in place of path '**' is given that will not show error it will redirect to error component
+];                                                        // ('**')-----> is wild card 
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+------------------------------------ error.componenet.html --------------------------------------------------
+
+<h1> ERROR URL NOT FOUND </h1>
+//**** if any random or wrong url is enteered in the nav bar it will show like this
