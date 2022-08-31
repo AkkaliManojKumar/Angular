@@ -1,6 +1,6 @@
 ng g c login
 
-----------------------------app-routing.module.ts
+----------------------------  app-routing.module.ts  ---------------------------------------------------
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -13,7 +13,7 @@ const routes: Routes = [
  {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'addcar',component:AddComponent},
   {path:'viewcar',component:ViewComponent},
-  {path:'login',component:LoginComponent},
+  {path:'login',component:LoginComponent},   //login component has been created
   {path:'**',component:ErrorComponent},
   
 ];
@@ -26,7 +26,7 @@ export class AppRoutingModule { }
 
 
 
----------------------------------------------login.html 
+---------------------------------------------  login.html  ---------------------------------------------------
 
 
 <p>login works!</p>
@@ -47,7 +47,7 @@ export class AppRoutingModule { }
 <button (click)="loginValidate()">  login  </button>
 
 
--------------------------login.ts
+------------------------- ------------------ login.ts  ------------------------------------
 
 
 
@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
   userName='';
   password='';
 
-  loginValidate()
+  loginValidate()    // method to validate the login and credintials
   {
     if(this.userName=="admin" && this.password=="admin")
    {
