@@ -46,4 +46,4 @@ export class AppRoutingModule { }
 </ul>
   
 
-<router-outlet> </router-outlet>        
+<router-outlet> </router-outlet>  // router-link  will just switch the component we clicked  WHERE href it will reload taotal page coz it is HTML tag      
