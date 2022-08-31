@@ -1,4 +1,4 @@
----------------app-routing.module.ts 
+---------------  app-routing.module.ts -------------------------------------------
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -6,8 +6,8 @@ import { AddComponent } from './add/add.component';
 import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
-  {path:'addcar',component:AddComponent},
-  {path:'viewcar',component:ViewComponent},
+  {path:'addcar',component:AddComponent},      ///**** inthis array we add (path) and (components)
+  {path:'viewcar',component:ViewComponent},     //** add component and view component is added to routing
 ];
 
 @NgModule({
@@ -21,34 +21,29 @@ export class AppRoutingModule { }
 
 
 
---------------------app.comp.html 
+-------------------- app.comp.html  --------------------------------------
 
-<!-- 
-<app-add> </app-add>
-
-<app-view> </app-view> -->
 
 <ul> 
-<li> 
-  <a href="addcar"> add car </a>
-</li>
-<li>
-<a href="viewcar"> view cars </a>
-</li>
+   <li> 
+       <a href="addcar"> add car </a>     // *** href is just link
+   </li>
+   
+   <li>
+        <a href="viewcar"> view cars </a>
+   </li>
 </ul>
 
-<p> below is router link </p>
+<p> below is router link </p>  //*** above is non-routed list  &&&&&&& BELOW IS ROUTED LIST
 
 <ul> 
-  <li> 
-    <a routerLink="addcar"> add car RL </a>
-  </li>
-  <li>
-  <a routerLink="viewcar"> view cars RL</a>
-  </li>
-  </ul>
+     <li> 
+       <a routerLink="addcar"> add car RL </a>  //*** ( // routerLink is link with routing \\ )
+     </li> 
+        <li>
+            <a routerLink="viewcar"> view cars RL</a>
+       </li>
+</ul>
   
 
-
-
-<router-outlet> </router-outlet>
+<router-outlet> </router-outlet>        
