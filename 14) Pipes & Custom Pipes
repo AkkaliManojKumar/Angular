@@ -32,7 +32,7 @@ now=new Date();  // to get current date in type script we use this
 <br>
 
 {{name|uppercase}}     //**** (|) symbol is the pipe ( print name exactly in upper case )
-
+                           // toUpper case and many other are pre-defined PIPES
 <br>
 {{name}}
 
@@ -43,7 +43,7 @@ now=new Date();  // to get current date in type script we use this
 
 <br> 
 
-{{money|currency}}     // print money with currency symbol
+{{money|currency}}     // print money with currency symbol   (currency is predefined pipe)
 
 <br>
 {{moneyDollar}}
@@ -101,19 +101,20 @@ now=new Date();  // to get current date in type script we use this
 
 note : create a file called (mycustom.pipe.ts)
 
-once a pipe is created ensure u add the pipe --> class name  in declaration of (app.module.ts)
+once a pipe is created ensure u add the pipe --> class name  in declaration of array of(app.module.ts)
 
 
 ---------------------------------------------------------------------  mycutom.pipe.ts  --------------------------------------------------------------------
 
 import { Pipe, PipeTransform } from "@angular/core";
 
-@Pipe({name:'testpipe'})
-export class MyPipe implements PipeTransform
+@Pipe({name:'testpipe'})         //*** testpipe is pipe name
+
+export class MyPipe implements PipeTransform          //**** my pipe is pipe class name
 {
     transform(value: any) {
        
-        //return  value+' test pipe applied';
+        //return  value+' test pipe applied';       // any custom method we want to write we write it here
         let val= value+"";
         val=val.toUpperCase()  // converting value to uppper case
         return val;
@@ -196,12 +197,7 @@ export class AppModule { }
 <br>
 <br>
 
-{{'new val '|testpipe:'U'}}
-
-
-
-<br>
-{{'wiPRO'|testpipe}}
+{{'wipRO '|testpipe:'U'}}
 
 <br>
 
@@ -216,16 +212,16 @@ import { Pipe, PipeTransform } from "@angular/core";
 
 export class MyPipe implements PipeTransform
 {
-    transform(value: any, ...type: any[]) {           //***** any kind of type can be used like string ,int and any
+    transform(value: any, ...type: any[]) {           //***** any kind of data-type can be used like string ,int and any
         
-        if(type.length>0)
+        if(type.length>0)                            // here type is variable
         {
         if(type[0].toUpperCase()=='U'){
             let val= value+"";
             val=val.toUpperCase()
             return val;
             }
-            else if(type[0].toUpperCase()=='L'){
+        else if(type[0].toUpperCase()=='L'){
                 let val= value+"";
                 val=val.toLowerCase();
                 return val;
