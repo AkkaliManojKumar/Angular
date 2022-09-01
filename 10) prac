@@ -1,6 +1,6 @@
 note  :------->>>>>>    to create a model select src create new file name it as student.model.ts <<<<<<<--------
 
--------------------------   model   ------------------------------------- 
+-------------------------   model   ((this model class is used to declare var's))------------------------------------- 
 
 export class Student
 {
@@ -53,7 +53,8 @@ export class AppComponent {
 //java code Student student=new Student()
   constructor()
   {
-    this.student=new Student();
+    this.student=new Student();    // creating instance inside the constructor
+            
     this.student.rollNo=10;
     this.student.gender='Male';
     this.student.name='John';
@@ -91,7 +92,7 @@ export class AppComponent {
   {
     this.student=new Student();
     //this.student.rollNo=10;
-    //this.student.gender='Male';
+    this.student.gender='Male';
     this.student.name='John';
     this.student.marks=100;
     this.student.sem=5;
@@ -109,7 +110,7 @@ export class AppComponent {
 
 <input type="number" [(ngModel)]="student.rollNo">
 
-<input type="radio" value="M" [(ngModel)]="student.gender"> male
+<input type="radio" value="M" [(ngModel)]="student.gender"> male                    <!-- WHEN RADIO CLICKED VALUE (M) IS GET ASSIGNED TO THE (student.gender) -->
 <input type="radio" value="F" [(ngModel)]="student.gender"> female
 <input type="radio" value="O" [(ngModel)]="student.gender"> other
 
