@@ -92,7 +92,7 @@ import { Student } from 'src/student.model';
 export class AppComponent {
 
 
-  students:Student[]=[];
+  students:Student[]=[];     // array type of objects are creating here 
   
 //Student students=new Student[10];
 
@@ -100,11 +100,11 @@ export class AppComponent {
   constructor()
   {
 
-   let stud1 ={'rollNo':2,'gender':'male','name':'rock','marks':56,'sem':6}
-   let stud2 ={'rollNo':3,'gender':'male','name':'john','marks':57,'sem':5}
-   let stud3 ={'rollNo':4,'gender':'male','name':'brock','marks':58,'sem':4}
+   let stud1 ={'rollNo':2,'gender':'male','name':'rock','marks':56,'sem':6}    // any no of objects can be creaated for the one class (obj1)
+   let stud2 ={'rollNo':3,'gender':'male','name':'john','marks':57,'sem':5}       //obj2
+   let stud3 ={'rollNo':4,'gender':'male','name':'brock','marks':58,'sem':4}      //obj3
 
-   this.students.push(stud1);
+   this.students.push(stud1);   // stud1 and stud2 and stud 3 are pushed in to the students array
    this.students.push(stud2);
    this.students.push(stud3);
 
@@ -122,7 +122,7 @@ export class AppComponent {
 <table> 
 
     <tr>                                  // table row
-        <td> Roll no </td> 
+        <td> Roll no </td>          // table data 
         <td> Gender </td>
         <td> Name </td>
         <td> Marks </td>
