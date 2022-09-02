@@ -1,0 +1,144 @@
+------------------------------------------------------------------------------------------app.com.html----
+
+<router-outlet></router-outlet>
+------------- ------------------------------------------------------------------------------------------app.routing module.ts ---------
+import { Component, NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { MaincompComponent } from './maincomp/maincomp.component';
+import { CarrentComponent } from './services/carrent/carrent.component';
+import { CarwashComponent } from './services/carwash/carwash.component';
+import { ServicesComponent } from './services/services.component';
+
+const routes: Routes = [
+  {path:'',redirectTo:'login',pathMatch:'full'},
+  {path:'home',component:HomeComponent},
+  {path:'login',component:LoginComponent},
+  {path:'maincomp',component:MaincompComponent},
+  {path:'services',component:ServicesComponent,
+   children:[
+        {path:'carwash',component:CarwashComponent},
+        {path:'carrent',component:CarrentComponent},
+        ]
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+-------------------------------------------------------------------------------------------------------------- login.html------------
+<p>login works!</p>
+<br>
+<p>Enter user name</p>
+<input type="text" [(ngModel)]="username">
+<br>
+<p>Enter password</p>
+<input type="text" [(ngModel)]="password">
+<br>
+<button (click)="validate()">login</button>
+-------------------------------------------------------------------------------------------------------login.ts-------------
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+Router
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+
+  constructor(private router:Router) { }
+  username='kk'
+  password=''
+  validate(){
+
+    if(this.username=='admin' && this.password=='admin'){
+      alert('admin login succesfull')
+      this.router.navigate(['maincomp'])
+    }
+    else{
+      alert('login failed')
+    }
+  }
+
+  ngOnInit(): void {
+  }
+
+}
+-----------------------------------------------------------------------------------------------------------------home.html-------------
+<p>home works!</p>
+-------------------------------------------------------------------------------------------------------------home.ts---------------
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+--------------------------------------------------------------------------------------------------------------------maincomp.html--------------
+<p>maincomp works!</p>
+
+
+<ul>
+    <li>
+    <a routerLink="/home">home</a>
+</li>
+<li>
+    <a routerLink="/login">login</a>
+</li>
+<li>
+    <a routerLink="/services">services</a>
+</li>
+</ul>
+<router-outlet></router-outlet>
+--------------------------------------------------------------------------------------------------------------maincomp.ts----------------------
+import { Component, OnInit } from '@angular/core';
+@Component({
+  selector: 'app-maincomp',
+  templateUrl: './maincomp.component.html',
+  styleUrls: ['./maincomp.component.css']
+})
+export class MaincompComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+---------------------------------------------------------------------------------------------------------------service.html------------
+<p>services works!</p>
+
+<ul>
+    <li routerLink="carwash" >carwash</li>
+    <li routerLink="carrent">carrent</li>
+</ul>
+
+---------------------------------------------------------------------------------------------------------------service.ts-----------------
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-services',
+  templateUrl: './services.component.html',
+  styleUrls: ['./services.component.css']
+})
+export class ServicesComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+
