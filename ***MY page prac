@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'home',component:HomeComponent},
   {path:'login',component:LoginComponent},
-  {path:'maincomp',component:MaincompComponent},
+                                            {path:'maincomp/:userId',component:MaincompComponent},     // userId  means ---->admin (or) user who logged in to be known
   {path:'services',component:ServicesComponent,
    children:[
         {path:'carwash',component:CarwashComponent},
@@ -57,10 +57,11 @@ export class LoginComponent implements OnInit {
 
     if(this.username=='admin' && this.password=='admin'){
       alert('admin login succesfull')
-      this.router.navigate(['maincomp'])
+      this.router.navigate(['maincomp','admin'])        // user is placed to get like admin loged in----->(maincomp/admin)
     }
-    else{
-      alert('login failed')
+    else if(this.username=='user'&&this.password=='user'){
+      alert('user login succesfull')
+      this.router.navigate(['maincomp','user'])          //user isplaced to get like user loged in----->(maincomp/user)
     }
   }
 
@@ -89,6 +90,8 @@ export class HomeComponent implements OnInit {
 --------------------------------------------------------------------------------------------------------------------maincomp.html--------------
 <p>maincomp works!</p>
 
+welcome {{userName}}            // WE ARE FETCHING THE DATA FROM THE TS.FILE
+
 
 <ul>
     <li>
@@ -102,7 +105,7 @@ export class HomeComponent implements OnInit {
 </li>
 </ul>
 <router-outlet></router-outlet>
---------------------------------------------------------------------------------------------------------------maincomp.ts----------------------
+--------------------------------------------------------------------------------------------------------------  maincomp.ts  ----------------------
 import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-maincomp',
@@ -111,10 +114,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaincompComponent implements OnInit {
 
-  constructor() { }
+  constructor(private actv:ActivatedRoute) { }         // Activateroute is used   --->  get data
 
-  ngOnInit(): void {
+  ngOnInit(): void {                                         //ngOninit method load ts FILE automatically 
+    this.readPathVar();
   }
+
+  USERNAME = '';
+  readPathVar()
+  {
+
+
+    this.actv.params.subscribe(
+
+     data =>{
+    this.USERNAME =  data['userId'];            //*** WE ARE ASSIGINING DATA WE GOT FROM LOGIN COMPONENT TO USERNAME
+     }
+   );
 
 }
 ---------------------------------------------------------------------------------------------------------------service.html------------
