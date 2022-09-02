@@ -6,7 +6,7 @@ ng g s student    --------->>>> Generate student service
 
 //// *** In service @InJectable annotation will be there 
 
-/// *** here we are injecting the service component to view component that is called dependency injection 
+/// *** here we are injecting the service component data to view component that is called dependency injection 
 ///*** view is dependent on the service component
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -29,13 +29,20 @@ ADD <-----------> SERVICE <----------------------------------------> VIEW
 
 ---------------------------------------------------------------// student.service.ts \\-------------------------------------------------------------
 
+
+                                    //============= this service has data ==== this is injected to the required componnets\\\
+
 import { Injectable } from '@angular/core';
 import { Student } from 'src/student.model';
 
-@Injectable({
-  providedIn: 'root'
+@Injectable({                        //**** injectable undhu kabatte idhi servuce ayyindhi
+  providedIn: 'root'   // root ante service root level lo inject chesthunnam anna mata
+  
 })
-export class StudentService {
+export class StudentService {     // service class name
+
+
+// in service class we create the data and share it to all the components
 
   students:Student[]=[];
   constructor() { 
@@ -71,9 +78,9 @@ export class StudentService {
 
 }
 
-----------------------------------model 
+----------------------------------  student.model.ts -------------------------------------------  
 
-
+// in model class we allways declare the variabels 
 
 export class Student
 {
@@ -105,11 +112,11 @@ export class Student
 <app-view> </app-view>    ///*** view-student component is called
 
 
------------------------------------------- add.comp.htm  ----------------------------------------------------
+------------------------------------------ add.comp.html  ----------------------------------------------------
 
 <table> 
 
-    <tr> 
+  <tr> 
     <td> 
 <label> roll no</label>
 </td>
@@ -191,11 +198,11 @@ export class AddComponent  {
 
   students:Student[]=[];
 
-  student:Student;
+  student:Student;    //**** here model class object created
   
-  constructor(private studSrv:StudentService)
+  constructor(private studSrv:StudentService)    // student service instance created --------- >>>>> this is dependency injection (DI)  <<<<-----
   {
-    this.student=new Student();
+    this.student=new Student();   //*** model class instance created
   }
 
   addStudent(student:Student)
