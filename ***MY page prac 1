@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'login',component:LoginComponent},
                                             {path:'maincomp/:userId/:pass',component:MaincompComponent},     // userId  means ---->admin (or) user who logged in to be known
-  {path:'services',component:ServicesComponent,
+  {path:'services',component:ServicesComponent,                                                                // userId & pass are path parameters
    children:[
         {path:'carwash',component:CarwashComponent},
         {path:'carrent',component:CarrentComponent},
@@ -33,7 +33,7 @@ export class AppRoutingModule { }
 <p>login works!</p>
 <br>
 <p>Enter user name</p>
-<input type="text" [(ngModel)]="username">
+<input type="text" [(ngModel)]="username">           // two way data binding so FormsModule should be impoerted
 <br>
 <p>Enter password</p>
 <input type="text" [(ngModel)]="password">
@@ -57,8 +57,8 @@ export class LoginComponent implements OnInit {
 
     if(this.username=='admin' && this.password=='admin@123'){
       alert('admin login succesfull')
-      this.router.navigate(['maincomp',this.username,this.password])        // user is placed to get like admin loged in----->(maincomp/admin)
-    }
+      this.router.navigate(['maincomp',this.username,this.password])        // login kagane maincomp ki velladaniki (Navigate )fun vadamu && ROUTER NI KUDA INSTANCE  CREATE CHEYYALI
+    }                                                                       //AFTER maincomp remaining are path variabels------>>>(this.username,this.password)
     else if(this.username=='user'&&this.password=='user@123'){
       alert('user login succesfull')
       this.router.navigate(['maincomp',this.username,this.password])          //this are called as path parameters 
@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit {
 --------------------------------------------------------------------------------------------------------------------maincomp.html--------------
 <p>maincomp works!</p>
 
-welcome {{userName}} having password {{PASSWORD}}            // WE ARE FETCHING THE DATA FROM THE TS.FILE
+welcome {{USERNAME}} having password {{PASSWORD}}            // WE ARE FETCHING THE DATA FROM THE TS.FILE
 
 
 <ul>
@@ -114,9 +114,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaincompComponent implements OnInit {
 
-  constructor(private actv:ActivatedRoute) { }         // Activateroute is used   --->  get data
+  constructor(private actv:ActivatedRoute) { }         // Activateroute is used   --->  get data from the routing path parameters
 
-  ngOnInit(): void {                                         //ngOninit method load ts FILE automatically 
+  ngOnInit(): void {                                         //ngOninit method methos called automatically 
     this.readPathVar();
   }
 
@@ -126,7 +126,7 @@ export class MaincompComponent implements OnInit {
   {
 
 
-    this.actv.params.subscribe(
+    this.actv.params.subscribe(            // this has two arguments 1)data 2)error
 
      data =>{
     this.USERNAME =  data['userId'];   //*** WE ARE ASSIGINING DATA WE GOT FROM LOGIN COMPONENT TO USERNAME
