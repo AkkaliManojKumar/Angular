@@ -4,6 +4,8 @@ ng g guard dnr  // to genareate guard
 -------------------------------------------------------------------------------------------   dnr.guard.ts   --------------------------------------------------------
 //GUARd is same like service file diffrence is that sevice not have canActivate file 
     Guard has CanActivated file
+    
+    ///** GUARD will restrict the acces to component if admin login he get acces // if user login he cannot acces the component
 
 
 import { Injectable } from '@angular/core';
