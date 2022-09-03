@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
     }
     else if(this.username=='user'&&this.password=='user@123'){
       alert('user login succesfull')
-      this.router.navigate(['maincomp',this.username,this.password])          //user isplaced to get like user loged in----->(maincomp/user)
+      this.router.navigate(['maincomp',this.username,this.password])          //this are called as path parameters 
     }
   }
 
