@@ -1,8 +1,16 @@
+28)DATA from POSTMAN -->service--->component
+
 NOTE : json-server shoube be up and running 
 
 ng g s car // WE AHVE TO GENERATE THE SERVICE
 
-1)----> data is fetched from the (postman=database) to -----> CarService ------> that data is send to the component  
+1)----> data is fetched from the (postman=database) to -----> CarService ------> that data is send to the component 
+
+--------------------------------------------------  STEPS ------------------------
+
+1)--> create service
+2)---> write httpclint in service &&& import HttpClient Service
+300---->create model class and declr the variabels
 
 
 -------------------------------------------------------------------------------------------- model  ------------------------------------------------------ 
@@ -108,7 +116,7 @@ export class AppComponent {
   title = 'httpdemo';
 
   cars:Car[]=[];
-  constructor(private carService:CarService)                    // DI dependency injection is done  (Carservice is injected here) to fetch data from service
+  constructor(private carService:CarService)                    // DI dependency injection is done to app.comp.ts  (Carservice is injected here) to fetch data from service
   {
 
   }
