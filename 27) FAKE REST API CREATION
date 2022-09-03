@@ -1,0 +1,51 @@
+----------------------------------------------------------------------------
+get  --> get data 
+post -> save data / secure / requestBody(it will ad new record)
+put -> update data
+delete -> delete data
+
+----------------------------------------------------------------------------
+
+
+
+npm install -g json-server    /// json server command
+
+ng new httpdemo            // new angular project command
+
+open project in vs code 
+
+new terminal                 
+
+json-server --watch db.json         //  create the fake database (dummy data base)
+
+-----------------------------------------------------------------------------------------------   db.json   ------------------------------------------
+
+{
+"cars":[]  //remove all content in file and just write this
+}
+------------------------------------------------------------------------------------------------------------
+
+1) ---->>> open postman
+
+get method enter (http://localhost:3000/cars)  IN SERACH BAR
+
+----------------------------------------------------------------------
+
+post 
+
+body
+-> raw
+->  change text to json
+
+---->body
+{
+
+    "id":2,
+    "name":"liva",
+    "maker":"toyota",
+    "colour":"black"
+
+}
+
+
+---------> hit get method again to see the data 
