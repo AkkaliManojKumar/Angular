@@ -2,7 +2,7 @@ NOTE : json-server shoube be up and running
 
 ng g s car // WE AHVE TO GENERATE THE SERVICE
 
-1)----> data is fetched from the (postma=database) to -----> CarService ------> that data is send to the component  
+1)----> data is fetched from the (postman=database) to -----> CarService ------> that data is send to the component  
 
 
 -------------------------------------------------------------------------------------------- model  ------------------------------------------------------ 
