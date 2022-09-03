@@ -160,3 +160,8 @@ export class ServicesComponent implements OnInit {
 
 }
 
+
+
+-------------------------------------------------------------------------------------------------------------
+PATH PARAMETERS : pathparameters are used to take data from one (1component) to other (2component) 
+once data taken from comp1 to comp2 that data from comp2 cannot send to other component
