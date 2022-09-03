@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'home',component:HomeComponent},
   {path:'login',component:LoginComponent},
-                                            {path:'maincomp/:userId',component:MaincompComponent},     // userId  means ---->admin (or) user who logged in to be known
+                                            {path:'maincomp/:userId/:pass',component:MaincompComponent},     // userId  means ---->admin (or) user who logged in to be known
   {path:'services',component:ServicesComponent,
    children:[
         {path:'carwash',component:CarwashComponent},
@@ -55,13 +55,13 @@ export class LoginComponent implements OnInit {
   password=''
   validate(){
 
-    if(this.username=='admin' && this.password=='admin'){
+    if(this.username=='admin' && this.password=='admin@123'){
       alert('admin login succesfull')
-      this.router.navigate(['maincomp','admin'])        // user is placed to get like admin loged in----->(maincomp/admin)
+      this.router.navigate(['maincomp',this.username,this.password])        // user is placed to get like admin loged in----->(maincomp/admin)
     }
-    else if(this.username=='user'&&this.password=='user'){
+    else if(this.username=='user'&&this.password=='user@123'){
       alert('user login succesfull')
-      this.router.navigate(['maincomp','user'])          //user isplaced to get like user loged in----->(maincomp/user)
+      this.router.navigate(['maincomp',this.username,this.password])          //user isplaced to get like user loged in----->(maincomp/user)
     }
   }
 
@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit {
 --------------------------------------------------------------------------------------------------------------------maincomp.html--------------
 <p>maincomp works!</p>
 
-welcome {{userName}}            // WE ARE FETCHING THE DATA FROM THE TS.FILE
+welcome {{userName}} having password {{PASSWORD}}            // WE ARE FETCHING THE DATA FROM THE TS.FILE
 
 
 <ul>
@@ -121,6 +121,7 @@ export class MaincompComponent implements OnInit {
   }
 
   USERNAME = '';
+  PASSWORD = '';
   readPathVar()
   {
 
@@ -128,7 +129,8 @@ export class MaincompComponent implements OnInit {
     this.actv.params.subscribe(
 
      data =>{
-    this.USERNAME =  data['userId'];            //*** WE ARE ASSIGINING DATA WE GOT FROM LOGIN COMPONENT TO USERNAME
+    this.USERNAME =  data['userId'];   //*** WE ARE ASSIGINING DATA WE GOT FROM LOGIN COMPONENT TO USERNAME
+     this.PASSWORD = data['pass'];
      }
    );
 
