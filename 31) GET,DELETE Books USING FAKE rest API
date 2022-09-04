@@ -1,4 +1,4 @@
-1)STEP-- 1>>>>  -- ng new httpdemo2
+1)STEP-- 1>>>>  -- ng new projectname
 2)STEP---2>>>>  -- ng serve
 3)STEP---3>>>>  -- json-server --watch db.json   // with this command db.json file created
 //*** db.json ACTS --->>> like the data base 
@@ -7,7 +7,8 @@
   ]
 }
 
-ng g s books      //**** generate service
+4)STEP ---->>> ng g s books      //**** generate service
+6) open POSTMAN and see all end are working or not
 
 ---------------------------------------------------------------------------  model.Book.ts  ----------------------------------
 
