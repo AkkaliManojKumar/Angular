@@ -51,7 +51,7 @@ export class AppRoutingModule { }
 
 
 
------------------------------------------------------------------------------------------ service ---------------------
+----------------------------------------------------------------------------------------- app.service.ts ---------------------
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Book } from 'src/Book.model';
@@ -67,7 +67,7 @@ export class BooksService {
   getNewsHeadlines()
   {
 
-    return this.http.get('https://newsapi.org/v2/top-headlines?country=in&apiKey=87229b519983412ba54b0c374de74182');
+    return this.http.get('https://newsapi.org/v2/top-headlines?country=in&apiKey=87229b519983412ba54b0c374de74182');  ||||+++//**** in the same key write the particular categeory
   }
 
 
@@ -128,15 +128,19 @@ export class HeadlinesComponent implements OnInit {
   }
   
   ngOnInit(): void {
+  
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+    
     this.getNews();
   }
   
   
-   articles:Article[]=[];
+   articles:Article[]=[];     //**** in articels common types will be there like (author & title &etc) for this we created model class  
   
   abc:string='';
+  
+  
   getNews()
   {
   this.bookService.getNewsHeadlines().subscribe(
