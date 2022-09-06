@@ -20,7 +20,7 @@ export class BooksService {
   {
 
     return this.http.get('https://newsapi.org/v2/top-headlines?country=in&apiKey=YOUR_API_KEY');    ////****** to getdata from from API paste the link
-  }
+  }                                                                                                     ///Inplace of API key we have to give KEY
 
 
 
@@ -40,13 +40,14 @@ import { BooksService } from './books.service';
 export class AppComponent {
   title = 'httpdemo2';
 
-constructor(private bookService:BooksService){
+constructor(private bookService:BooksService){           //*** dependency injection is done here
 
 }
 
 ngOnInit(): void {
   //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
   //Add 'implements OnInit' to the class.
+  
   this.getNews();  //**** call the method 
 }
 
