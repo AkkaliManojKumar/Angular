@@ -3,6 +3,18 @@ ng g c health
 ng g c headlines
 ---------------------------------------------------------------  NEW WEBSITE WITH ALL TYPE OF NEWS -------------------------------------------
 
+----------------------------------------------------------------------------------- Article.model.ts ---------------------------------------
+export class Article        // this is the models class we declare all vars 
+{
+
+    
+mytitle='';
+desc='';
+url='';
+urlToImage='';
+author='';
+} 
+
 
 ------------------------------------------------------------------------------ app.comp.html ----------------------
 
@@ -132,12 +144,12 @@ export class HeadlinesComponent implements OnInit {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     
-    this.getNews();
+    this.getNews();  //*** THIS METHOD CALLED WHEN FILE LOADS
   }
   
   
    articles:Article[]=[];     //**** in articels common types will be there like (author & title &etc) for this we created model class  
-  
+                              //*** IN THE SAME API KEY SO MANY ARTICELS ARE THERE SO CREATED THE ARRAY OF ARTICELS
   abc:string='';
   
   
