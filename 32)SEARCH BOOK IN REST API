@@ -37,7 +37,7 @@ export class BooksService {
   searchBookById(id:number)
   {
 
-    return this.http.get<Book>(`http://localhost:3000/books/${id}`);
+    return this.http.get<Book>(`http://localhost:3000/books/${id}`);                                //**** back ticks are used for the link
   }
 
 
@@ -104,8 +104,11 @@ rating:
 
 <br>
 <br>
+
+
+
 <p> below is search</p>
-<!--  search by id  -->
+<!---------------------------------------------------------------  search by id  ----------------------------------------------->
 
 
 <input type="text" [(ngModel)]="searchId">
@@ -223,10 +226,12 @@ deleteBook(id:number)
 //------------------------------------------------------------------------------------------------------------------------------------------  search by id
 
 
-searchId:number=0;
+searchId:number=0;          // variable declaration
 
 bookSearch=new Book();
 isVisible=false;
+
+
 searchData()
 {
 
